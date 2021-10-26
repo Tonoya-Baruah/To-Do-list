@@ -1,0 +1,220 @@
+<!doctype html> 
+<html lang="en"> 
+				<head>
+								<meta charset="utf-8"> 
+								<meta name="viewport" content="width=device-width, initial-scale=1">
+								<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+								<!--<link href="to-do.css" rel="stylesheet"></link>-->
+							<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Zen+Kurenaido&display=swap');
+
+.container {
+				position: relative;
+}
+.none{
+				text-decoration: none;
+}
+
+.button:hover{
+				background: #000052 !important;
+				outline: none !important;
+				border: 0px;
+				cursor: pointer;
+				}
+p{
+				margin: 1em 3em 2em 3em ;
+				display: flex;
+				overflow-wrap: break-word;
+				padding: 1.1em;
+			/*	width: 60vw !important;*/
+				background: #ffffff00 !important;
+				cursor: pointer;
+				text-decoration: none ;
+				transition: text-decoration 1s ease-in-out;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 600;
+
+}
+
+h6{
+			text-align: right;
+			color: #000080;
+			margin: auto;
+				
+}
+h6:hover{
+				opacity: 0.8;
+}
+
+  svg{
+				transform: scale(1);
+}
+svg:hover{
+				transform: scale(1.2);
+}
+
+#input{
+				position: relative;
+}
+input {
+				width: 50vw !important; 
+				box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important; 
+				border-radius: 100vh !important; 
+				font-family: 'Zen Kurenaido', sans-serif !important; 
+				font-size: 18px !important;
+}
+
+[type = "checkbox"]{
+				width: 22px;
+				box-shadow: none !important; 
+				height: 18px;
+				display: flex;
+				margin: 0;
+				/*position: absolute;*/
+				float: left !important;
+				
+}
+
+.cross{
+				width: 2vw;
+				height: 1.5px;
+				background: #000000;
+				position: absolute; 
+				transform: rotate(45deg);
+				margin: 0.7em 0 0 12em ;
+}
+.cross::before{
+				content: "";
+				width: 2vw;
+				height: 1.5px;
+				background: #000000;
+				position: absolute; 
+				transform: rotate(90deg);
+}
+.circle{
+				width: 27px;
+				position: relative;
+				height: 25px;
+				border: 2px solid #000000;
+				border-radius: 25%;
+				margin-right: 2em;
+}
+
+
+
+@media(max-width: 400px){
+	p{
+					width: 50vw !important;
+	}	
+	.circle{
+					width: 35px ;
+	}
+
+
+}
+
+
+@media(max-width: 600px ){
+					.cross , .cross::before{
+					width: 5vw;
+			  	height: 3px;
+			  }
+}
+
+@media(max-width: 700px){
+					.cross , .cross::before{
+					width: 4vw;
+			  	height: 2.5px;
+			  }
+			  .cross{
+			  				margin-left: 11em;
+			  }
+}
+
+</style>
+								<title> To-Do List | Tonoya Baruah </title> 
+					</head> 
+					<body> 
+									<div class="alert alert-info" role="alert" id="error" style="opacity: 0; transition: opacity 0.3s ease-in; font-weight: 600;"> Please enter a title of your task.. </div>
+				<div class="container mx-auto mt-4 mb-4" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; width: 100vw; background: #F5F5F5;">
+								<h2 class="text-center pt-4 text-weight-bold" style="color:#000080;"> 
+												<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-square mr-3" viewBox="0 0 16 16"> <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/> <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/> </svg> My Todo-s</h2>
+												<div class="container">
+															<div class="mb-3 row d-flex justify-content-center mt-4 ml-2 mr-2"> 
+																			<div class="mb-3 row d-flex justify-content-center mt-4 ml-2 mr-2">
+																	<input type="search" class="input p-3" id="text" placeholder="Add new task.."> 
+																		<button class="btn btn-sm button" style="background: #000080; color: #ffffff; width: 87px; margin-left: 12px; margin-top: 10px; font-family: 'Zen Kurenaido', sans-serif;" id="button" onclick="submitthe()"> Add</button> <br>
+																		<h6 onclick="clearList()" style="width:13vw; text-align: center; margin-top: 2em;">Clear List</h6>
+																	<hr class="mt-4" style="background: #808080;">
+									
+													
+																		</div>
+													</div>	
+								
+								<div class=" mt-4 ml-2 mr-2 container"	 id="area" 	>			
+								<div id="input">
+											
+								</div>
+													</div>
+													
+				</div>
+
+				</div>
+				
+	
+<!--<script src="todo.js"></script>-->
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+				let error= document.getElementById("error");
+//let items = localStorage.getItem("items")
+error.style.opacity = 0;
+
+function submitthe() {
+				let input = document.querySelector("#input")
+				let submit = document.getElementById("text").value;
+				const p = document.createElement("p");
+				p.innerHTML = `<div class="circle"></div>` + submit + `<div class="cross" onclick = "remove()"></div>`;
+				
+ 	if (submit === "") {
+			error.style.opacity = 100;
+			} 
+			else{				
+			let append = input.appendChild(p);
+			error.style.opacity = 0;	
+			
+			}
+			p.addEventListener("click", ()=>{
+			if (p.clicked = true) {				
+				p.innerHTML = `	<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" style="margin-right: 2em;" class="bi bi-check-square mr-3" viewBox="0 0 16 16"> <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/> <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/> </svg>` + submit + `<div class="cross" onclick = "remove()"></div>` ;
+				p.style.textDecoration = "line-through";
+				p.style.fontStyle = "italics";
+				p.style.opacity = 0.7 ; 
+		}
+})
+}
+
+function clearList() {
+				let input = document.querySelector("#input")
+				let submit = document.getElementById("text").value;
+    const p = document.createElement("p");
+				var response = confirm("Do you want to clear the list? "); 
+				if ( response == true ){ 
+					input.innerHTML = '';
+				} else { 
+				console.log("Hello");
+				}
+}
+function remove() {
+				let input = document.querySelector("#input")
+				let submit = document.getElementById("text").value;
+    const p = document.createElement("p");
+			 input.firstChild.remove(p);
+}
+
+</script>
+		</body> 
+</html>
